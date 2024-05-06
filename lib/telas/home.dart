@@ -1,8 +1,10 @@
 import 'package:fb_flutter/componentes/area_criar_postagem.dart';
+import 'package:fb_flutter/componentes/area_estoria.dart';
 import 'package:fb_flutter/componentes/botao_circulo.dart';
 import 'package:fb_flutter/dados/dados.dart';
 import 'package:fb_flutter/uteis/paleta_cores.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -52,6 +54,15 @@ class _HomeState extends State<Home> {
           SliverToBoxAdapter(
             child: AreaCriarPostagem(
               usuario: usuarioAtual,
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: AreaStoria(
+                usuario: usuarioAtual,
+                estorias: estorias,
+              ),
             ),
           ),
           const SliverToBoxAdapter()
