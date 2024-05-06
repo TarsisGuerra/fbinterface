@@ -1,4 +1,6 @@
+import 'package:fb_flutter/componentes/area_criar_postagem.dart';
 import 'package:fb_flutter/componentes/botao_circulo.dart';
+import 'package:fb_flutter/dados/dados.dart';
 import 'package:fb_flutter/uteis/paleta_cores.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
@@ -21,7 +23,7 @@ class _HomeState extends State<Home> {
         slivers: [
           //Um sliver é uma parte de uma área rolável que você pode definir para se comportar de maneira especial.
           SliverAppBar(
-            backgroundColor: Colors.orange,
+            backgroundColor: Colors.white,
             // expandedHeight: 300, //MUDA O TAMNHO DO APP BAR
             floating: true,
             centerTitle: false,
@@ -46,7 +48,13 @@ class _HomeState extends State<Home> {
                 onPressed: () {},
               ),
             ],
-          )
+          ),
+          SliverToBoxAdapter(
+            child: AreaCriarPostagem(
+              usuario: usuarioAtual,
+            ),
+          ),
+          const SliverToBoxAdapter()
         ],
       ),
     );
