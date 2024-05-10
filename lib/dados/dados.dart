@@ -73,8 +73,6 @@ List<Estoria> estorias = [
       urlImagem: "https://source.unsplash.com/DOb-2jd0sbc/800x600"),
 ];
 
-
-/*
 /* Lista de postagens */
 List<Postagem> postagens = [
   Postagem(
@@ -147,4 +145,3 @@ List<Postagem> postagens = [
       comentarios: 25,
       compartilhamentos: 3),
 ];
-*/
