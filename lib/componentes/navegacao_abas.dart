@@ -5,8 +5,10 @@ class NavegacaoAbas extends StatelessWidget {
   final List<IconData> icones;
   final int indiceAbaSelecionada;
   final Function(int) onTap;
+  final bool indicadorEmbaixo;
 
   const NavegacaoAbas({
+    this.indicadorEmbaixo = false,
     required this.icones,
     required this.indiceAbaSelecionada,
     required this.onTap,
@@ -17,12 +19,18 @@ class NavegacaoAbas extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBar(
         onTap: onTap,
-        indicator: const BoxDecoration(
-            border: Border(
-                top: BorderSide(
-          color: PaletaCores.azulFacebook,
-          width: 3,
-        ))),
+        indicator: BoxDecoration(
+            border: indicadorEmbaixo
+                ? const Border(
+                    bottom: BorderSide(
+                    color: PaletaCores.azulFacebook,
+                    width: 3,
+                  ))
+                : const Border(
+                    top: BorderSide(
+                    color: PaletaCores.azulFacebook,
+                    width: 3,
+                  ))),
         tabs: icones
             .asMap()
             .map((indice, icone) {

@@ -1,5 +1,6 @@
 import 'package:fb_flutter/componentes/navegacao_abas.dart';
 import 'package:fb_flutter/componentes/navegacao_abas_desktop.dart';
+import 'package:fb_flutter/dados/dados.dart';
 import 'package:fb_flutter/telas/home.dart';
 import 'package:fb_flutter/uteis/responsivo.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,16 @@ class _PrincipalState extends State<Principal> {
             ? PreferredSize(
                 preferredSize: Size(tamanho.width,
                     100), // 100 é altura máxima que pode ter, no arquivo navegacao_abas_desktop, vc pode ver que a altura que ele vai ter é 65
-                child: const NavegacaoAbasDesktop())
+                child: NavegacaoAbasDesktop(
+                  usuario: usuarioAtual,
+                  icones: _icones,
+                  indiceAbaSelecionada: _indiceAbaSelecionada,
+                  onTap: (indice) {
+                    setState(() {
+                      _indiceAbaSelecionada = indice;
+                    });
+                  },
+                ))
             : null,
         body: TabBarView(
           children: _telas,
